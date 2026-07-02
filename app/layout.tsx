@@ -2,9 +2,9 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "The Humanoid Robotics Race — Dashboard",
+  title: "Fleet Registry — Robotics Capital Scan",
   description:
-    "Funding, valuation, and specs across 11 humanoid robotics companies — Figure AI, Apptronik, Agility Robotics, 1X, Unitree, Boston Dynamics, Tesla Optimus, and more.",
+    "Funding, valuation, and hardware specs across 26 VC-backed robotics and foundation-model operators — Figure AI, Skild AI, Physical Intelligence, Apptronik, Neura Robotics, Unitree, and more.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
