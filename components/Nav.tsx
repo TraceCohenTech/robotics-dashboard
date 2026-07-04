@@ -20,18 +20,14 @@ export function Nav() {
 
   return (
     <nav
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 font-hud ${
-        scrolled ? "bg-[#050a10]/90 backdrop-blur-md border-b border-cyan-500/20" : "bg-transparent"
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 font-data ${
+        scrolled ? "bg-[#f7f3ea]/95 backdrop-blur-md border-b border-[#c9bfa8]" : "bg-transparent"
       }`}
     >
       <div className="mx-auto max-w-[1600px] px-4 sm:px-6 h-14 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 text-white">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inset-0 rounded-full bg-emerald-400 pulse-dot" />
-            <span className="relative rounded-full h-2 w-2 bg-emerald-400" />
-          </span>
-          <span className="text-xs sm:text-sm font-bold tracking-[0.15em] uppercase">
-            Fleet_Registry<span className="text-cyan-400">.sys</span>
+        <a href="#top" className="flex items-center gap-2 text-[#1a1410]">
+          <span className="text-xs sm:text-sm font-bold tracking-[0.15em] uppercase font-serif-head">
+            Fleet Atlas <span className="text-[#0891b2]">No. 001</span>
           </span>
         </a>
         <div className="hidden md:flex items-center gap-1">
@@ -39,7 +35,7 @@ export function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="px-3 py-1.5 rounded text-xs uppercase tracking-widest font-medium text-cyan-100/70 hover:text-cyan-300 hover:bg-cyan-500/10 active:scale-[0.97] transition"
+              className="px-3 py-1.5 rounded text-xs uppercase tracking-widest font-medium text-[#4a4038] hover:text-[#1a1410] hover:bg-[#e8e0cf] active:scale-[0.97] transition"
             >
               {l.label}
             </a>
@@ -50,24 +46,24 @@ export function Nav() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((o) => !o)}
-          className="md:hidden inline-flex items-center justify-center h-11 w-11 rounded text-cyan-300"
+          className="md:hidden inline-flex items-center justify-center h-11 w-11 rounded text-[#1a1410]"
         >
           <span className="sr-only">Menu</span>
           <div className="w-5 space-y-1">
-            <div className="h-0.5 w-full bg-cyan-300" />
-            <div className="h-0.5 w-full bg-cyan-300" />
-            <div className="h-0.5 w-full bg-cyan-300" />
+            <div className="h-0.5 w-full bg-[#1a1410]" />
+            <div className="h-0.5 w-full bg-[#1a1410]" />
+            <div className="h-0.5 w-full bg-[#1a1410]" />
           </div>
         </button>
       </div>
       {open && (
-        <div className="md:hidden bg-[#050a10] border-t border-cyan-500/20 px-4 py-3 flex flex-col gap-1">
+        <div className="md:hidden bg-[#f7f3ea] border-t border-[#c9bfa8] px-4 py-3 flex flex-col gap-1">
           {LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="px-3 py-2.5 rounded text-xs uppercase tracking-widest font-medium text-cyan-100/80 hover:bg-cyan-500/10"
+              className="px-3 py-2.5 rounded text-xs uppercase tracking-widest font-medium text-[#4a4038] hover:bg-[#e8e0cf]"
             >
               {l.label}
             </a>
