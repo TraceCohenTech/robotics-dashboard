@@ -510,7 +510,7 @@ export default function Page() {
               <MissionStat numeral="I" label="Foundation-model valuation" value="$25.0B" sub="Skild AI + Physical Intelligence" />
               <MissionStat numeral="II" label="Hardware avg. (top 3)" value="$17.2B" sub="Figure, Neura, Apptronik" />
               <MissionStat numeral="III" label="Consolidation events" value="3" sub="Covariant, Diligent, Fauna -> acquired" />
-              <MissionStat numeral="IV" label="China entrants" value="7" sub="Unitree, Galbot, AgiBot, Fourier, Robotera, TARS, +" />
+              <MissionStat numeral="IV" label="China entrants" value="8" sub="Unitree, Galbot, AgiBot, Fourier, Robotera, TARS, Spirit AI, +" />
             </div>
           </div>
         </section>
