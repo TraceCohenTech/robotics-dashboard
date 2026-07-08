@@ -6,8 +6,8 @@ export function TickerTape() {
   const doubled = [...entries, ...entries];
   return (
     <div className="overflow-hidden py-3 relative font-data">
-      <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-[#1a1410] to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-[#1a1410] to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-[#efe9db] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-[#efe9db] to-transparent z-10 pointer-events-none" />
       <div className="marquee-track flex gap-2 w-max">
         {doubled.map((b, i) => (
           <div

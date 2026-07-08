@@ -86,6 +86,7 @@ body {
   position: relative;
   background: var(--paper-panel);
   border: 1px solid var(--rule-dark);
+  transition: transform 250ms var(--geist-ease), box-shadow 250ms var(--geist-ease), border-color 250ms var(--geist-ease);
 }
 
 /* Dark specimen panel (hero, mission brief) */

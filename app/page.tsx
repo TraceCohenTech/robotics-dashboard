@@ -33,6 +33,7 @@ import {
   FUNDING_CHART,
   HERO_STATS,
   MARKET_BREAKDOWN,
+  TIMELINE_EVENTS,
   VALUATION_CHART,
   type Market,
   type Robotics,
@@ -171,7 +172,7 @@ export default function Page() {
                     onClick={() => setFilter(active ? "All" : m.market)}
                     aria-pressed={active}
                     aria-label={`Filter by ${m.market}`}
-                    className={`plate-card rounded-sm p-4 min-h-[44px] flex flex-col justify-between text-left transition-all active:scale-[0.97] ${
+                    className={`plate-card rounded-sm p-4 min-h-[44px] flex flex-col justify-between text-left transition-all hover:-translate-y-0.5 hover:border-[#0891b2] hover:shadow-md active:scale-[0.97] ${
                       active ? "ring-2 ring-[#0891b2]" : ""
                     }`}
                   >
@@ -206,7 +207,7 @@ export default function Page() {
                 <h3 className="font-serif-head text-lg font-bold text-[#1a1410]">Total funding raised</h3>
                 <p className="font-data text-xs text-[#4a4038]">$ millions, all VC-backed operators</p>
               </div>
-              <div role="img" aria-label="Bar chart of total funding raised by robotics company, in millions of dollars" className="h-[360px] sm:h-[560px]">
+              <div role="img" aria-label="Bar chart of total funding raised by robotics company, in millions of dollars" className="h-[480px] sm:h-[560px]">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={FUNDING_CHART} layout="vertical" margin={{ top: 8, right: 24, left: 8, bottom: 0 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#d8cfba" horizontal={false} />
@@ -233,7 +234,7 @@ export default function Page() {
                 <h3 className="font-serif-head text-lg font-bold text-[#1a1410]">Latest disclosed valuation</h3>
                 <p className="font-data text-xs text-[#4a4038]">$ millions, most recent round</p>
               </div>
-              <div role="img" aria-label="Bar chart of latest disclosed valuation by robotics company, in millions of dollars" className="h-[360px] sm:h-[560px]">
+              <div role="img" aria-label="Bar chart of latest disclosed valuation by robotics company, in millions of dollars" className="h-[480px] sm:h-[560px]">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={VALUATION_CHART} layout="vertical" margin={{ top: 8, right: 24, left: 8, bottom: 0 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#d8cfba" horizontal={false} />
@@ -456,6 +457,36 @@ export default function Page() {
           </div>
         </section>
 
+        {/* TIMELINE */}
+        <section id="timeline" className="scroll-mt-20">
+          <SectionTitle
+            eyebrow="Plate VI &middot; Timeline"
+            title="A year of capital in motion"
+            sub="Notable funding rounds, IPO steps, acquisitions, and product launches across the tracked roster, Jul 2025 &ndash; Jul 2026."
+          />
+          <div className="plate-card rounded-sm p-5 sm:p-6">
+            <ol className="relative border-l border-[#c9bfa8] ml-2 sm:ml-3">
+              {[...TIMELINE_EVENTS].sort((a, b) => a.date.localeCompare(b.date)).map((e, i) => (
+                <li key={i} className="relative pl-6 sm:pl-8 pb-6 last:pb-0">
+                  <span
+                    className="absolute -left-[5px] top-1 h-2.5 w-2.5 rounded-full ring-4 ring-[#f7f3ea]"
+                    style={{ background: e.color }}
+                    aria-hidden="true"
+                  />
+                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-data">
+                    <span className="text-[10px] uppercase tracking-widest text-[#6b6152] font-bold">{e.label}</span>
+                    <span className="text-[9px] uppercase tracking-wider rounded-full border border-[#c9bfa8] px-2 py-0.5 text-[#4a4038]">
+                      {e.kind}
+                    </span>
+                  </div>
+                  <div className="mt-1 font-serif-head text-base sm:text-lg font-bold text-[#1a1410]">{e.company}</div>
+                  <p className="text-sm text-[#4a4038] mt-0.5">{e.event}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
         {/* MISSION BRIEF */}
         <section className="plate-dark rounded-sm p-6 sm:p-10 relative overflow-hidden">
           <div className="relative grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
@@ -493,11 +524,11 @@ export default function Page() {
             Figures marked uncertain had conflicting sources across research — treat as directional, not exact. Not investment advice.
           </p>
           <p className="text-xs text-[#4a4038]">
-            <a href="https://x.com/Trace_Cohen" target="_blank" rel="noopener" className="text-[#0891b2] hover:text-[#1a1410] hover:underline font-semibold">
+            <a href="https://x.com/Trace_Cohen" target="_blank" rel="noopener" className="text-[#0e7490] hover:text-[#1a1410] hover:underline font-semibold">
               @Trace_Cohen
             </a>
             {" · "}
-            <a href="mailto:t@nyvp.com" className="text-[#0891b2] hover:text-[#1a1410] hover:underline font-semibold">
+            <a href="mailto:t@nyvp.com" className="text-[#0e7490] hover:text-[#1a1410] hover:underline font-semibold">
               t@nyvp.com
             </a>
           </p>
@@ -513,7 +544,7 @@ function SectionTitle({ eyebrow, title, sub }: { eyebrow?: string; title: string
   return (
     <div className="mb-6 sm:mb-8">
       {eyebrow && (
-        <div className="font-data text-xs uppercase tracking-[0.2em] text-[#0891b2] font-semibold mb-2">{eyebrow}</div>
+        <div className="font-data text-xs uppercase tracking-[0.2em] text-[#0e7490] font-semibold mb-2">{eyebrow}</div>
       )}
       <h2 className="font-serif-head text-2xl sm:text-4xl font-bold text-[#1a1410] tracking-tight">{title}</h2>
       {sub && <p className="mt-2 text-sm sm:text-base text-[#4a4038] max-w-3xl">{sub}</p>}
@@ -539,12 +570,12 @@ function PlateStat({
         <div className="text-[10px] sm:text-xs font-data uppercase tracking-[0.15em] text-[#cdc3b0] font-semibold">
           {label}
         </div>
-        <span className="font-serif-head text-sm text-[#8a7f68]" aria-hidden="true">{numeral}</span>
+        <span className="font-serif-head text-sm text-[#a89a7d]" aria-hidden="true">{numeral}</span>
       </div>
       <div className="font-serif-head text-2xl sm:text-4xl font-bold mt-2 text-[#f7f3ea]">
         {value}
       </div>
-      {sub && <div className="font-data text-xs text-[#8a7f68] mt-1 truncate">{sub}</div>}
+      {sub && <div className="font-data text-xs text-[#a89a7d] mt-1 truncate">{sub}</div>}
     </div>
   );
 }
@@ -554,10 +585,10 @@ function MissionStat({ numeral, label, value, sub }: { numeral: string; label: s
     <div className="rounded-sm border border-[#3a2f24] bg-black/20 p-4">
       <div className="flex items-start justify-between">
         <div className="text-[10px] uppercase tracking-wider text-[#cdc3b0] font-semibold">{label}</div>
-        <span className="font-serif-head text-xs text-[#8a7f68]" aria-hidden="true">{numeral}</span>
+        <span className="font-serif-head text-xs text-[#a89a7d]" aria-hidden="true">{numeral}</span>
       </div>
       <div className="font-serif-head text-2xl sm:text-3xl font-bold mt-1 text-[#f7f3ea]">{value}</div>
-      <div className="text-[11px] text-[#8a7f68] mt-1">{sub}</div>
+      <div className="text-[11px] text-[#a89a7d] mt-1">{sub}</div>
     </div>
   );
 }
@@ -565,10 +596,10 @@ function MissionStat({ numeral, label, value, sub }: { numeral: string; label: s
 function SpecimenPlate({ c, plateNo }: { c: Robotics; plateNo: number }) {
   const money = (v: number) => (v > 0 ? fmtM(v) : null);
   return (
-    <div className="plate-card group rounded-sm p-5 hover:-translate-y-1 transition-transform duration-300 overflow-hidden relative flex flex-col">
+    <div className="plate-card group rounded-sm p-5 hover:-translate-y-1 hover:shadow-lg hover:border-[#8a7f68] overflow-hidden relative flex flex-col">
       <div className="flex items-start justify-between mb-2 pb-2 border-b border-[#c9bfa8]">
         <div>
-          <div className="font-data text-[10px] uppercase tracking-widest text-[#8a7f68]">
+          <div className="font-data text-[10px] uppercase tracking-widest text-[#6b6152]">
             No. {String(plateNo).padStart(2, "0")}
           </div>
           <div className="font-serif-head text-lg font-bold text-[#1a1410] leading-tight">{c.name}</div>
@@ -595,7 +626,7 @@ function SpecimenPlate({ c, plateNo }: { c: Robotics; plateNo: number }) {
 function SpecRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-baseline justify-between gap-2">
-      <span className="uppercase tracking-wider text-[#8a7f68] text-[10px]">{label}</span>
+      <span className="uppercase tracking-wider text-[#6b6152] text-[10px]">{label}</span>
       <span className="text-right text-[#1a1410] font-semibold tabular-nums">{value}</span>
     </div>
   );

@@ -7,6 +7,7 @@ const LINKS = [
   { href: "#roster", label: "Roster" },
   { href: "#specs", label: "Specs" },
   { href: "#matrix", label: "Matrix" },
+  { href: "#timeline", label: "Timeline" },
 ];
 
 export function Nav() {
@@ -27,7 +28,7 @@ export function Nav() {
       <div className="mx-auto max-w-[1600px] px-4 sm:px-6 h-14 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2 text-[#1a1410]">
           <span className="text-xs sm:text-sm font-bold tracking-[0.15em] uppercase font-serif-head">
-            Fleet Atlas <span className="text-[#0891b2]">No. 001</span>
+            Field Atlas <span className="text-[#0e7490]">No. 001</span>
           </span>
         </a>
         <div className="hidden md:flex items-center gap-1">
